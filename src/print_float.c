@@ -32,7 +32,7 @@
 #include <stdio.h>     // printf
 
 // delcare fuction name
-void print_float_array( float array[] );
+void print_float_array( float array[], unsigned int array_size );
 
 int main( int argc, char* argv[] )
 {
