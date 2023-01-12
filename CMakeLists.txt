@@ -12,7 +12,10 @@ set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_C_STANDARD 11)
 
 ## Discover C/Cpp files to build
-file(GLOB SRC_FILES "src/*.c" "src/*.cpp") # Load all files in src folder
+add_executable( examples src/main.c)
 
-add_executable( megn540_c_refresher ${SRC_FILES})
+add_executable( print_float src/print_float.c )
+
+add_executable( pi_as_hex src/pi_as_hex.c )
+
 

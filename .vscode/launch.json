@@ -5,10 +5,64 @@
         "version": "0.2.0",
         "configurations": [
                 {
-                        "name": "(gdb) Launch",
+                        "name": "main (gdb) Launch",
                         "type": "cppdbg",
                         "request": "launch",
                         "program": "${workspaceFolder}/build/megn540_c_refresher",
+                        "args": [
+                                "-pi",
+                                "3.14159"
+                        ],
+                        "stopAtEntry": false,
+                        "cwd": "${fileDirname}",
+                        "environment": [],
+                        "externalConsole": false,
+                        "MIMode": "gdb",
+                        "setupCommands": [
+                                {
+                                        "description": "Enable pretty-printing for gdb",
+                                        "text": "-enable-pretty-printing",
+                                        "ignoreFailures": true
+                                },
+                                {
+                                        "description": "Set Disassembly Flavor to Intel",
+                                        "text": "-gdb-set disassembly-flavor intel",
+                                        "ignoreFailures": true
+                                }
+                        ]
+                },
+                {
+                        "name": "print_float (gdb) Launch",
+                        "type": "cppdbg",
+                        "request": "launch",
+                        "program": "${workspaceFolder}/build/print_float",
+                        "args": [
+                                "-pi",
+                                "3.14159"
+                        ],
+                        "stopAtEntry": false,
+                        "cwd": "${fileDirname}",
+                        "environment": [],
+                        "externalConsole": false,
+                        "MIMode": "gdb",
+                        "setupCommands": [
+                                {
+                                        "description": "Enable pretty-printing for gdb",
+                                        "text": "-enable-pretty-printing",
+                                        "ignoreFailures": true
+                                },
+                                {
+                                        "description": "Set Disassembly Flavor to Intel",
+                                        "text": "-gdb-set disassembly-flavor intel",
+                                        "ignoreFailures": true
+                                }
+                        ]
+                },
+                {
+                        "name": "pi_as_hex (gdb) Launch",
+                        "type": "cppdbg",
+                        "request": "launch",
+                        "program": "${workspaceFolder}/build/pi_as_hex",
                         "args": [
                                 "-pi",
                                 "3.14159"

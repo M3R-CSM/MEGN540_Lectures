@@ -28,20 +28,75 @@
 
 */
 
+#include <inttypes.h>  // for uint8_t etc
 #include <stdio.h>
 
 int main( int argc, char* argv[] )
 {
-    // This is a print statement. It will not work with the car, but it will work for non-car work.
-    printf( "Number of Inputs is: %i\n", argc );
+    // print type sizing
+    printf( "A float is %lu bytes\n", sizeof( float ) );
 
-    // This is how we make a for loop
-    for( int i = 0; i < argc; i++ ) {
+    printf( "A int is %lu bytes\n", sizeof( int ) );
 
-        // print all arguments passed to the function call to the screen
-        printf( "Input %i is %s\n", i, argv[i] );
+    printf( "A uint16_t is %lu bytes\n", sizeof( uint16_t ) );
+
+    printf( "\n\n" );
+
+    /////////   Lets make an array  //////////
+    int8_t my_array[3];
+
+    printf( "Size of my_array: %lu\n", sizeof( my_array ) );  // when the array in in scope the compiler knows how bit it is.
+
+    // put data in my array
+    my_array[0] = 6;  // arrays indexing starts at 0
+    my_array[1] = 7;
+    my_array[2] = 8;
+
+    // print the data
+    for( uint8_t i = 0; i < sizeof( my_array ); i++ ) {
+        /* ****** CAUTION!!  **********
+        sizeof(my_array) only works in the scope of the array instantiation (int my_array[3]).
+        When passed to a function it will return the size of the array pointer (8 on a 64bit machine).
+        */
+
+        printf( "my_array @ index %i is %i.\n", i, my_array[i] );
     }
-    printf( "Program done.\n\n" );
+
+    printf( "\n\n" );
+
+    /////////   Lets make a struct  //////////
+
+    typedef struct __attribute__( ( __packed__ ) ) {
+        // NOTE: __attribute__((__packed__)) is only requried to prevent memory padding on desktop systems, but it costs in run-time efficiency
+        float a;
+        uint8_t b;
+    } My_Struct_t;
+
+    My_Struct_t my_struct;
+    my_struct.a = 3.0;
+    my_struct.b = 6;
+
+    printf( "Size of My_Struct_t: %lu\n", sizeof( My_Struct_t ) );
+
+    printf( "Size of my_struct float part: %f\n", ( my_struct.a ) );
+    printf( "Size of my_struct uint8 part: %i\n", ( my_struct.b ) );
+
+    printf( "\n\n" );
+
+    /////////  Lets Talk unions   /////////////
+
+    typedef union {
+        int asInt;
+        uint8_t asByteArray[sizeof( int )];
+    } Float_Char_Union_t;
+
+    Float_Char_Union_t my_union;
+
+    printf( "Size of Float_Char_Union_t: %lu\n", sizeof( Float_Char_Union_t ) );
+
+    my_union.asInt = 15;
+    for( int8_t i = 0; i < 4; i++ )
+        printf( "int of %i: byte %i is 0x%X\n", my_union.asInt, i, my_union.asByteArray[i] );
 
     // the main function returns completion status. 0 means no error
     return 0;
