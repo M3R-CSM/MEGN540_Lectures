@@ -43,7 +43,7 @@ int main( int argc, char* argv[] )
     return 0;
 }
 
-void print_float_array( float array[] )
+void print_float_array( float array[], unsigned int array_size )
 {
     // print the float to the terminal
 }
