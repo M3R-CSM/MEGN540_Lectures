@@ -8,7 +8,7 @@
                         "name": "main (gdb) Launch",
                         "type": "cppdbg",
                         "request": "launch",
-                        "program": "${workspaceFolder}/build/megn540_c_refresher",
+                        "program": "${workspaceFolder}/build/examples",
                         "args": [
                                 "-pi",
                                 "3.14159"
