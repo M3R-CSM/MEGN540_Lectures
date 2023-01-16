@@ -5,14 +5,37 @@
         "version": "0.2.0",
         "configurations": [
                 {
-                        "name": "(gdb) Launch",
+                        "name": "(gdb) Launch example",
                         "type": "cppdbg",
                         "request": "launch",
-                        "program": "${workspaceFolder}/build/megn540_c_refresher",
+                        "program": "${workspaceFolder}/build/example",
                         "args": [
-                                "-pi",
-                                "3.14159"
+                                "100"
                         ],
+                        "stopAtEntry": false,
+                        "cwd": "${fileDirname}",
+                        "environment": [],
+                        "externalConsole": false,
+                        "MIMode": "gdb",
+                        "setupCommands": [
+                                {
+                                        "description": "Enable pretty-printing for gdb",
+                                        "text": "-enable-pretty-printing",
+                                        "ignoreFailures": true
+                                },
+                                {
+                                        "description": "Set Disassembly Flavor to Intel",
+                                        "text": "-gdb-set disassembly-flavor intel",
+                                        "ignoreFailures": true
+                                }
+                        ]
+                },
+                {
+                        "name": "(gdb) Launch bit_operations",
+                        "type": "cppdbg",
+                        "request": "launch",
+                        "program": "${workspaceFolder}/build/bit_operations",
+                        "args": [],
                         "stopAtEntry": false,
                         "cwd": "${fileDirname}",
                         "environment": [],

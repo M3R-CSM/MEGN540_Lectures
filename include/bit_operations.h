@@ -28,21 +28,41 @@
 
 */
 
-#include <stdio.h>
+#ifndef BIT_OPERATIONS_H  // thisis called an include guard. It prevents the compiler from parsing this header file twice and creating re-definition errors.
+#define BIT_OPERATIONS_H
 
-int main( int argc, char* argv[] )
-{
-    // This is a print statement. It will not work with the car, but it will work for non-car work.
-    printf( "Number of Inputs is: %i\n", argc );
 
-    // This is how we make a for loop
-    for( int i = 0; i < argc; i++ ) {
+/**
+ * Returns if a bit is set.  BIT_IS_SET( 2, 1 ) ==> true, BIT_IS_SET( 2, 0 ) ==> false
+*/
+#define BIT_IS_SET( byte, bit_index) 0; 
 
-        // print all arguments passed to the function call to the screen
-        printf( "Input %i is %s\n", i, argv[i] );
-    }
-    printf( "Program done.\n\n" );
 
-    // the main function returns completion status. 0 means no error
-    return 0;
-}
+/**
+ * Sets a bit in a register or variable
+*/
+#define SET_BIT( byte, bit_index ) 0;
+/**
+ * Toggles a bit in a register or variable
+*/
+#define TGL_BIT( byte, bit_index ) 0;
+/** 
+ * Clears a bit in a register or variable
+*/
+#define CLR_BIT( byte, bit_index ) 0;
+
+/**
+ * Sets corresponding register or variable bits that align with the mask's binary 1s
+*/
+#define SET_MSK( byte, mask_to_set ) 0;
+/**
+ * Clears corresponding register or variable bits that align with the mask's binary 1s
+*/
+#define CLR_MSK( byte, mask_to_clear ) 0;
+/**
+ * Toggles corresponding register or variable bits that align with the mask's binary 1s
+*/
+#define TGL_MSK( byte, mask_to_toggle) 0;
+
+
+#endif
