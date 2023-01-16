@@ -39,7 +39,7 @@ const char* byte_to_binary( uint8_t value )
     static char ret_str[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     for( uint8_t i = 0; i < 8; i++ ) {
-        // use bit-wise and (&) and left sift operator to determine bit value
+        // use bit-wise and (&) and left sift operator to determine bit value. Left to right print order means start at a sift of 7 and work backwords
         ret_str[i] = ( value & ( 1 << ( 7 - i ) ) ) ? '1' : '0';
     }
 
